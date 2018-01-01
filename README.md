@@ -1,28 +1,35 @@
 # Capybara::FullScreenshot
+Allows you to capture the entire page, not just the visible portion, when running JS integration tests with Capybara.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/capybara/full_screenshot`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem will query the browser window contents and resize the window chrome, ensuring that when the screenshot is taken, the window is large enough to show all contents without scroll bars.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'capybara-full_screenshot'
+group :test do
+  gem 'capybara-full_screenshot'
+end
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install capybara-full_screenshot
-
 ## Usage
 
-TODO: Write usage instructions here
+To debug, use in any feature test by calling the provided rspec helper method.
+
+```ruby
+RSPec.describe 'My Feature', type: :feature do
+  before { login && visit(root_path) }
+
+  it 'does something' do
+    save_and_open_full_screenshot
+  end
+end
+```
 
 ## Development
 
@@ -38,4 +45,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
