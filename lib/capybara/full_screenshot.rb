@@ -1,3 +1,6 @@
+require "capybara"
+require "launchy"
+
 require "capybara/full_screenshot/version"
 
 module Capybara
