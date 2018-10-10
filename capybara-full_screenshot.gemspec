@@ -13,6 +13,9 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Allows you to capture the entire page by resizing the browser window in JS tests.}
   spec.homepage      = "http://www.madebylotus.com"
   spec.license       = "MIT"
+  spec.metadata = {
+    "source_code_uri" => "https://github.com/madebylotus/capybara-full_screenshot"
+  }
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
